@@ -1,0 +1,32 @@
+{
+  "name": "space-elk-web-plugin",
+  "version": "1.0.0",
+  "description": "Crowd-funding web plugin",
+  "main": "index.js",
+  "scripts": {
+    "dev": "run-p sass webpack",
+    "sass": "node-sass src/scss/app.scss --watch --recursive --output dist --output-style nested",
+    "webpack": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developyuk/space-elk-web-plugin.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/developyuk/space-elk-web-plugin/issues"
+  },
+  "homepage": "https://github.com/developyuk/space-elk-web-plugin#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "npm-run-all": "^4.0.2",
+    "webpack": "^2.6.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
