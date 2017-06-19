@@ -6,8 +6,6 @@ NAME="space-elk-web-plugin"
 IMAGE="$ORG/$NAME"
 CONTAINER="${ORG}_${NAME}"
 
-COMMAND="npm run webpack"
-
 function logs {
   docker logs --timestamps --follow "$CONTAINER"
 }
@@ -27,12 +25,14 @@ while (( "$#" )); do
         --volume=$(pwd)/dist:/project/dist:rw \
         --workdir=/project/src \
         "$IMAGE" \
-        sh -c "$COMMAND"
-
-      logs
+        sh -c "npm run dev"
       ;;
     "login")
       docker exec -it $(docker ps | grep "$CONTAINER" | awk '{print $1}') bash
+      ;;
+    "exec")
+      shift
+      docker exec -it $(docker ps --all | grep "$CONTAINER" | awk '{print $1}') $1
       ;;
     "down")
       docker rm --force "$CONTAINER"

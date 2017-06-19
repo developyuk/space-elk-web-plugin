@@ -1,0 +1,10 @@
+@import "bem";
+
+.deye-space-elk{
+  @include e('button'){
+
+  }
+  @include e('iframe'){
+    height:100%;
+  }
+}
